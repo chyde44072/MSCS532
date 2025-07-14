@@ -1,3 +1,10 @@
+"""
+This module implements a hash table using chaining for collision resolution.
+It uses a universal hash function to minimize collisions and supports
+efficient insert, search, and delete operations with O(1 + α) expected time,
+where α is the load factor (number of elements / table size).
+"""
+
 import random
 
 class HashTableChaining:

@@ -1,3 +1,10 @@
+"""
+This module implements and compares Randomized Quicksort with Deterministic Quicksort.
+It empirically tests both algorithms on various input distributions (random, sorted, 
+reverse-sorted, repeated elements) to demonstrate the performance advantages of 
+randomized pivot selection.
+"""
+
 import random
 import time
 
