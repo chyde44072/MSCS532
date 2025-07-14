@@ -1,5 +1,3 @@
-# AVL Tree for sorted metrics (e.g., speed, win ratio)
-
 from typing import Optional, List, Tuple
 
 class AVLNode:
@@ -11,9 +9,6 @@ class AVLNode:
         self.height: int = 1
 
 class AVLTree:
-    """
-    AVL Tree for storing horses sorted by a specific metric.
-    """
     def insert(self, root: Optional[AVLNode], horse_id: str, metric: float) -> AVLNode:
         # Insert a new node and keep the tree balanced
         if not root:

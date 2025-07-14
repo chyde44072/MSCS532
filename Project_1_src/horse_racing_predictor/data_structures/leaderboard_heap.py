@@ -1,4 +1,3 @@
-# Min-heap for live leaderboard rankings
 import heapq
 from typing import List, Tuple
 

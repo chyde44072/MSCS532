@@ -1,16 +1,6 @@
-"""
-hash_table.py
-
-Implements a simple hash table for storing and managing horse metadata.
-"""
-
 from typing import Dict, Any, Optional, List
 
 class HorseDatabase:
-    """
-    Hash table for storing and managing horse metadata.
-    Keys are horse IDs, values are dictionaries of horse data.
-    """
     def __init__(self):
         # Initialize the internal dictionary to store horse data
         self.db: Dict[str, Dict[str, Any]] = {}
