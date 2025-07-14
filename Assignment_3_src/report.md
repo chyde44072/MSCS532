@@ -78,3 +78,7 @@ This report analyzes and compares the efficiency and scalability of two key algo
 - **Randomized Quicksort** is robust and efficient for all input types, while Deterministic Quicksort can degrade badly on certain inputs.
 - **Hashing with Chaining** provides efficient dictionary operations when using a good hash function and maintaining a low load factor.
 - Both theoretical and empirical analyses confirm the importance of algorithm design choices for scalability
+
+## References
+
+1. Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2022). Introduction to algorithms (4th ed.). The MIT Press.
