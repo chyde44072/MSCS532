@@ -1,11 +1,11 @@
-Assignment 5: Quicksort Algorithm - Implementation, Analysis, and Randomization Report
+# Assignment 5: Quicksort Algorithm - Implementation, Analysis, and Randomization Report
 
-Executive Summary
+## Executive Summary
 This report presents a comprehensive implementation and analysis of the Quicksort algorithm, focusing on both deterministic and randomized versions. The project demonstrates the theoretical foundations, practical implementations, and empirical performance characteristics of these sorting algorithms, with particular emphasis on how randomization impacts performance and reliability.
 
-1. Quicksort Implementation and Analysis
+## 1. Quicksort Implementation and Analysis
 
-1.1 Algorithm Implementation
+### 1.1 Algorithm Implementation
 The quicksort implementations follow the standard divide-and-conquer algorithm structure:
 
 **Partitioning**: Rearrange array so elements smaller than pivot come before, larger come after
@@ -17,7 +17,7 @@ Key Implementation Details:
 - Pivot selection strategies: Deterministic vs. randomized approaches
 - Performance tracking: Monitors comparisons, swaps, and recursive calls
 
-1.2 Deterministic vs. Randomized Versions
+### 1.2 Deterministic vs. Randomized Versions
 
 **Deterministic Quicksort**:
 - Pivot Selection: Always uses the last element as pivot
@@ -29,7 +29,7 @@ Key Implementation Details:
 - Eliminates input-dependent worst-case scenarios
 - Provides consistent expected performance
 
-1.3 Time Complexity Analysis
+### 1.3 Time Complexity Analysis
 
 **Theoretical Analysis**:
 - **Best Case**: O(n log n) - Pivot consistently divides array into equal halves
@@ -52,14 +52,14 @@ When pivot is consistently minimum or maximum:
 - **Deterministic**: Worst case occurs on sorted/reverse-sorted inputs
 - **Randomized**: Worst case probability ≈ 2^n/n! ≈ 0 (negligible for practical purposes)
 
-1.4 Space Complexity Analysis
+### 1.4 Space Complexity Analysis
 - **Space Complexity**: O(log n) average case, O(n) worst case
 - **In-place Algorithm**: Sorts within the original array
 - **Recursion Stack**: Primary space overhead from recursive calls
 
-2. Empirical Performance Analysis
+## 2. Empirical Performance Analysis
 
-2.1 Experimental Setup
+### 2.1 Experimental Setup
 Testing conducted on various input sizes (100, 500, 1000, 2000 elements) and distributions:
 
 **Input Distributions Tested**:
@@ -75,7 +75,7 @@ Testing conducted on various input sizes (100, 500, 1000, 2000 elements) and dis
 - Number of element swaps
 - Recursive call depth and frequency
 
-2.2 Key Performance Results
+### 2.2 Key Performance Results
 
 **Execution Time Analysis** (1000 elements):
 
@@ -95,7 +95,7 @@ Testing conducted on various input sizes (100, 500, 1000, 2000 elements) and dis
 | Sorted | 499,500 | 10,234 | 48.8x |
 | Reverse | 498,456 | 10,567 | 47.2x |
 
-2.3 Scalability Verification
+### 2.3 Scalability Verification
 
 **Growth Rate Analysis**:
 - **Random Data**: Both algorithms demonstrate O(n log n) scaling
@@ -108,9 +108,9 @@ For sorted data scaling:
 
 This confirms theoretical predictions: deterministic exhibits quadratic growth on sorted inputs while randomized maintains linearithmic performance.
 
-3. Randomization Impact Analysis
+## 3. Randomization Impact Analysis
 
-3.1 Performance Consistency
+### 3.1 Performance Consistency
 The randomized version demonstrates significantly more consistent performance across different input distributions:
 
 **Coefficient of Variation Analysis**:
@@ -119,7 +119,7 @@ The randomized version demonstrates significantly more consistent performance ac
 
 This indicates randomized Quicksort provides much more predictable performance regardless of input characteristics.
 
-3.2 Worst-Case Mitigation
+### 3.2 Worst-Case Mitigation
 **Sorted Array Performance Improvement**:
 For arrays of size n, the improvement factor from randomization is approximately:
 - **Improvement Factor**: n/(2.77 × log n)
@@ -129,16 +129,16 @@ For arrays of size n, the improvement factor from randomization is approximately
 **Statistical Significance**:
 Performance differences between deterministic and randomized versions on problematic inputs (sorted/reverse-sorted) are statistically significant (p < 0.001), confirming genuine performance benefits.
 
-3.3 Probability Analysis
+### 3.3 Probability Analysis
 The probability of encountering worst-case behavior:
 - **Deterministic**: 100% on sorted/reverse-sorted inputs
 - **Randomized**: (2/n)^(n-1) ≈ 0 for practical array sizes
 
 This dramatic reduction in worst-case probability makes randomized Quicksort suitable for production environments where input characteristics are unknown.
 
-4. Comparative Analysis
+## 4. Comparative Analysis
 
-4.1 Quicksort Variants vs. Other Sorting Algorithms
+### 4.1 Quicksort Variants vs. Other Sorting Algorithms
 
 | Algorithm | Best Case | Average Case | Worst Case | Space | Stable |
 |-----------|-----------|--------------|------------|-------|--------|
@@ -149,7 +149,7 @@ This dramatic reduction in worst-case probability makes randomized Quicksort sui
 
 *Probability negligible for randomized version
 
-4.2 Algorithm Selection Guidelines
+### 4.2 Algorithm Selection Guidelines
 
 **When to Use Deterministic Quicksort**:
 - Educational purposes (simpler to understand and analyze)
@@ -162,35 +162,35 @@ This dramatic reduction in worst-case probability makes randomized Quicksort sui
 - Systems vulnerable to adversarial inputs
 - General-purpose sorting where reliability is paramount
 
-5. Real-World Applications
+## 5. Real-World Applications
 
-5.1 System Software
+### 5.1 System Software
 **Operating System Process Scheduling**:
 - Quick sorting of process queues by priority
 - Memory management algorithms requiring efficient sorting
 - File system operations (directory sorting, index maintenance)
 
-5.2 Database Systems  
+### 5.2 Database Systems  
 **Query Optimization**:
 - Sorting result sets for ORDER BY clauses
 - Join operation optimization
 - Index maintenance and reconstruction
 
-5.3 Data Processing Frameworks
+### 5.3 Data Processing Frameworks
 **Large-Scale Data Analytics**:
 - Apache Hadoop/Spark internal sorting operations
 - MapReduce shuffle phase optimization
 - Distributed system data partitioning
 
-5.4 Algorithm Selection in Practice
+### 5.4 Algorithm Selection in Practice
 **When Randomized Quicksort is Preferred**:
 - Standard library implementations (Java Arrays.sort(), C++ std::sort)
 - General-purpose applications with unknown input characteristics
 - Systems requiring consistent performance guarantees
 
-6. Conclusion
+## 6. Conclusion
 
-6.1 Key Findings
+### 6.1 Key Findings
 **Randomization Effectiveness**: Random pivot selection successfully eliminates input-dependent worst-case scenarios, providing up to 70% performance improvement on problematic inputs.
 
 **Performance Reliability**: Randomized Quicksort demonstrates significantly more consistent performance across different input distributions (CV: 8.9% vs 67.3% for deterministic).
@@ -199,7 +199,7 @@ This dramatic reduction in worst-case probability makes randomized Quicksort sui
 
 **Practical Superiority**: For general-purpose applications, randomized Quicksort provides superior reliability and consistent expected O(n log n) performance.
 
-6.2 Practical Recommendations
+### 6.2 Practical Recommendations
 
 **Choose Deterministic Quicksort When**:
 - Input distribution characteristics are well-known and favorable
@@ -212,7 +212,7 @@ This dramatic reduction in worst-case probability makes randomized Quicksort sui
 - Protection against adversarial inputs is necessary
 - Implementing general-purpose sorting functionality
 
-6.3 Algorithmic Insights
+### 6.3 Algorithmic Insights
 This analysis demonstrates that small algorithmic modifications (random pivot selection) can have significant practical impact. The randomization technique:
 - Transforms worst-case probability from certain to negligible
 - Provides stronger performance guarantees than deterministic approaches
