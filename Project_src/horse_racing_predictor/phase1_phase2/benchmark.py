@@ -92,8 +92,8 @@ def benchmark_leaderboard(race_times: List[Tuple[str, float]], operations: int =
     
     # Benchmark insertions
     start_time = time.time()
-    for horse_id, time in race_times:
-        leaderboard.add_result(horse_id, time)
+    for horse_id, race_time in race_times:
+        leaderboard.add_result(horse_id, race_time)
     insert_time = time.time() - start_time
     results['insert_total'] = insert_time
     results['insert_avg'] = insert_time / len(race_times)

@@ -1,48 +1,98 @@
 # Horse Racing Predictor - Data Structures Implementation
 
 ## Overview
-This project implements optimized data structures for a horse racing prediction system, focusing on efficient data handling, memory usage, and scalability.
+This project implements fundamental data structures for a horse racing prediction system. The system demonstrates practical applications of hash tables, heaps, and AVL trees in managing horse profiles, performance tracking, and ranking operations.
 
 ## Project Structure
 ```
 horse_racing_predictor/
-├── data_structures/
-│   ├── __init__.py
-│   ├── hash_table.py          # HorseDatabase implementation
-│   ├── leaderboard_heap.py    # Heap-based leaderboard
-│   └── avl_tree.py           # Self-balancing binary search tree
+├── data_structures/              # Core data structure implementations
+│   ├── hash_table.py            # HorseDatabase implementation
+│   ├── leaderboard_heap.py      # Heap-based leaderboard
+│   └── avl_tree.py             # Self-balancing binary search tree
+├── models/
+│   └── horse.py                 # Horse data model
 ├── tests/
-│   └── test_data_structures.py # Comprehensive test suite
-├── demo.py                    # Demonstration script
-├── benchmark.py              # Performance testing
-└── README.md                 # This file
+│   └── test_data_structures.py  # Unit tests for all structures
+├── demo.py                      # Demonstration script
+├── benchmark.py                 # Performance testing
+├── data_loader.py               # Data loading utilities
+├── horses.xlsx                  # Sample dataset
+└── README.md                    # This file
 ```
 
-## Data Structures
+## Core Data Structures
 
 ### 1. Hash Table (HorseDatabase)
-- **Purpose**: Fast horse profile storage and retrieval
-- **Time Complexity**: O(1) average case for insertions, lookups, updates
-- **Features**: 
-  - Add/retrieve horse profiles by ID
-  - Update performance data
-  - List all horses
+A hash table implementation for efficient horse profile storage and retrieval.
 
-### 2. Min-Heap (Leaderboard)
-- **Purpose**: Track top-performing horses by race time
-- **Time Complexity**: O(log n) insertions, O(k log n) top-k queries
-- **Features**:
-  - Dynamic leaderboard updates
-  - Top performer queries
-  - Individual horse ranking
+**Features:**
+- O(1) average-case lookups
+- Dynamic resizing with load factor management
+- Collision handling using chaining
+- Horse profile management with performance tracking
 
-### 3. AVL Tree (Ranking System)
-- **Purpose**: Rank horses by win ratio with range queries
-- **Time Complexity**: O(log n) insertions, searches, range queries
-- **Features**:
-  - Self-balancing for consistent performance
-  - Efficient range queries
-  - Sorted traversal
+**Usage:**
+```python
+from data_structures.hash_table import HorseDatabase
+
+db = HorseDatabase()
+db.add_horse("H001", {"name": "Thunder", "jockey": "Smith"})
+horse = db.get_horse("H001")
+```
+
+**Time Complexity:**
+- Insertion: O(1) average, O(n) worst case
+- Lookup: O(1) average, O(n) worst case
+- Deletion: O(1) average, O(n) worst case
+
+### 2. Leaderboard (Min-Heap)
+A min-heap implementation for maintaining dynamic race time leaderboards.
+
+**Features:**
+- Efficient top-k queries
+- Dynamic updates for new race results
+- Maintains fastest race times automatically
+- Memory-efficient heap structure
+
+**Usage:**
+```python
+from data_structures.leaderboard_heap import Leaderboard
+
+leaderboard = Leaderboard()
+leaderboard.add_result("H001", 65.2)
+top_5 = leaderboard.get_top_performers(5)
+```
+
+**Time Complexity:**
+- Insertion: O(log n)
+- Get minimum: O(1)
+- Extract minimum: O(log n)
+- Top-k queries: O(k log n)
+
+### 3. AVL Tree
+A self-balancing binary search tree for range queries and sorted operations.
+
+**Features:**
+- Automatic height balancing
+- Efficient range queries by win ratio
+- In-order traversal for sorted results
+- O(log n) guaranteed operations
+
+**Usage:**
+```python
+from data_structures.avl_tree import AVLTree
+
+tree = AVLTree()
+tree.insert(0.75, "H001")  # win_ratio, horse_id
+high_performers = tree.get_range(0.7, 1.0)
+```
+
+**Time Complexity:**
+- Insertion: O(log n)
+- Search: O(log n)
+- Deletion: O(log n)
+- Range queries: O(log n + m) where m is result size
 
 ## Installation & Usage
 
@@ -174,3 +224,12 @@ The system now includes real Kentucky Derby winner data (2000-2024) featuring:
 - **Tier Classification**: Elite, good, and average performer categories
 - **Correlation Studies**: Speed vs. consistency analysis
 
+## Contributing
+When contributing to this project:
+1. Follow existing code style and patterns
+2. Add comprehensive tests for new features
+3. Update documentation for any API changes
+4. Ensure backward compatibility when possible
+
+
+**Summary**: This implementation demonstrates fundamental data structure concepts through a practical horse racing prediction system, providing efficient operations for data management, performance tracking, and analytical queries.

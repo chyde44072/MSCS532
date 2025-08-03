@@ -6,7 +6,10 @@ Enhanced demonstration using real Kentucky Derby winner data.
 from data_structures.hash_table import HorseDatabase
 from data_structures.leaderboard_heap import Leaderboard
 from data_structures.avl_tree import AVLTree
-from data_loader import load_kentucky_derby_data, get_horse_stats_summary, filter_horses_by_criteria, create_sample_race
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'shared'))
+from utils.data_loader import load_kentucky_derby_data, get_horse_stats_summary, filter_horses_by_criteria, create_sample_race
 
 def print_section_header(title: str):
     """Print a formatted section header."""
